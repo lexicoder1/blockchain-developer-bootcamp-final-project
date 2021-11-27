@@ -15,13 +15,43 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("factorycontract");
-  const greeter = await Greeter.deploy();
+  const Staking = await hre.ethers.getContractFactory("staking");
+  const staking = await Staking.deploy();
 
-  await greeter.deployed();
+  await staking.deployed();
+
+  const Usdttoken = await hre.ethers.getContractFactory("stablecoin",usdt,10000000000000000000000000000000000000);
+  const usdttoken = await Usdttoken.deploy();
+
+  await  usdttoken.deployed();
+
+  const Shibatoken = await hre.ethers.getContractFactory("stablecoin",shiba,10000000000000000000000000000000000000);
+  const shibatoken = await Shibatoken.deploy();
+
+  await shibatoken.deployed();
   
 
-  console.log("Greeter deployed to:", greeter.address);
+  const Dai = await hre.ethers.getContractFactory("stablecoin",dai,10000000000000000000000000000000000000);
+  const dai= await Dai.deploy();
+
+  await  dai.deployed();
+
+  const Busd = await hre.ethers.getContractFactory("stablecoin",busd,10000000000000000000000000000000000000);
+  const busd= await Busd.deploy();
+
+  await  busd.deployed();
+
+  const usdtaddress=usdttoken.address
+  const shibaaddress=shibatoken.address
+  const daiaddress=dai.address
+  const busdaddress=busd.address
+
+  await staking.setTickerToTokenAddress('usdt',usdtaddress)
+  await staking.setTickerToTokenAddress('shibtoken',shibaaddress)
+  await staking.setTickerToTokenAddress('dai',daiaddress)
+  await staking.setTickerToTokenAddress('busd',usdtaddress)
+
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
