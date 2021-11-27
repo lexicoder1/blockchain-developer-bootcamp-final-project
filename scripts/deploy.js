@@ -20,24 +20,24 @@ async function main() {
 
   await staking.deployed();
 
-  const Usdttoken = await hre.ethers.getContractFactory("token",usdt,10000000000000000000000000000000000000);
-  const usdttoken = await Usdttoken.deploy();
+  const Usdttoken = await hre.ethers.getContractFactory("token");
+  const usdttoken = await Usdttoken.deploy('stablecoin','usdt',10000000000000000000000000000000000000);
 
   await  usdttoken.deployed();
 
-  const Shibatoken = await hre.ethers.getContractFactory("token",shiba,10000000000000000000000000000000000000);
-  const shibatoken = await Shibatoken.deploy();
+  const Shibatoken = await hre.ethers.getContractFactory("token");
+  const shibatoken = await Shibatoken.deploy('stablecoin','shiba',10000000000000000000000000000000000000);
 
   await shibatoken.deployed();
   
 
-  const Dai = await hre.ethers.getContractFactory("token",dai,10000000000000000000000000000000000000);
-  const dai= await Dai.deploy();
+  const Dai = await hre.ethers.getContractFactory("token");
+  const dai= await Dai.deploy('stablecoin','dai',10000000000000000000000000000000000000);
 
   await  dai.deployed();
 
-  const Busd = await hre.ethers.getContractFactory("token",busd,10000000000000000000000000000000000000);
-  const busd= await Busd.deploy();
+  const Busd = await hre.ethers.getContractFactory("token");
+  const busd= await Busd.deploy('stablecoin','busd',10000000000000000000000000000000000000);
 
   await  busd.deployed();
 
