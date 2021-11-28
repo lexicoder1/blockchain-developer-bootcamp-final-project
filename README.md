@@ -52,12 +52,18 @@ and users can stake more than one token on the platform .
 whitelisted erc20 token
 
 usdt
+
 shibatoken
+
 dai
+
 busd
 
 
 client: Project's React frontend.
+
 contracts: Smart contracts that are deployed in the Rinkeby testnet.
-compiling: compiled files and Abi for deploying contracts in contracts artifacts.
+
+scripts: scrprits for deploying smartcontract.
+
 test: Tests for smart contracts.
