@@ -15,29 +15,31 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
+  const num=ethers.utils.parseUnits('10000000000000000000', 18)
   const Staking = await hre.ethers.getContractFactory("staking");
   const staking = await Staking.deploy();
 
   await staking.deployed();
 
   const Usdttoken = await hre.ethers.getContractFactory("token");
-  const usdttoken = await Usdttoken.deploy('stablecoin','usdt',10000000000000000000000000000000000000);
+  
+  const usdttoken = await Usdttoken.deploy('stablecoin','usdt',num);
 
   await  usdttoken.deployed();
 
   const Shibatoken = await hre.ethers.getContractFactory("token");
-  const shibatoken = await Shibatoken.deploy('stablecoin','shiba',10000000000000000000000000000000000000);
+  const shibatoken = await Shibatoken.deploy('stablecoin','shiba',num);
 
   await shibatoken.deployed();
   
 
   const Dai = await hre.ethers.getContractFactory("token");
-  const dai= await Dai.deploy('stablecoin','dai',10000000000000000000000000000000000000);
+  const dai= await Dai.deploy('stablecoin','dai',num);
 
   await  dai.deployed();
 
   const Busd = await hre.ethers.getContractFactory("token");
-  const busd= await Busd.deploy('stablecoin','busd',10000000000000000000000000000000000000);
+  const busd= await Busd.deploy('stablecoin','busd',num);
 
   await  busd.deployed();
 
@@ -49,7 +51,9 @@ async function main() {
   await staking.setTickerToTokenAddress('usdt',usdtaddress)
   await staking.setTickerToTokenAddress('shibtoken',shibaaddress)
   await staking.setTickerToTokenAddress('dai',daiaddress)
-  await staking.setTickerToTokenAddress('busd',usdtaddress)
+  await staking.setTickerToTokenAddress('busd',busdaddress)
+
+  console.log('ggg',usdtaddress)
 
 
 }
