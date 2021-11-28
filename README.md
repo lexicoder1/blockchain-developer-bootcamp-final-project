@@ -38,7 +38,7 @@ Open http://localhost:3000
 
 
 Screencast link
-
+https://www.loom.com/share/a107fcd3928542348c8e8959ec2c2c08
 
 Public Ethereum wallet for certification:
 
