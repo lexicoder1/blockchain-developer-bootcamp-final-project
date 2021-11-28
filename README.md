@@ -1,9 +1,11 @@
 Final project - erc20 staking platform
 
 Deployed version url:
+
 https://stakingerc20token.netlify.app/
 
 How to run this project locally:
+
 Prerequisites
 Node.js >= v14
 hardhat 
@@ -26,6 +28,7 @@ Screencast link
 
 
 Public Ethereum wallet for certification:
+
 0x9817C311F6897D30e372C119a888028baC879d1c
 
 Project description
