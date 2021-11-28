@@ -1,0 +1,17 @@
+Network: Rinkeby Network
+
+staking
+address: 0x26d5592E71D09B02C91c7Bb4C4952Bf9788Df702
+
+usdt
+address: 0xaD8b942802017066eD15e4d8a280A9B7b13e56c4
+ 
+shibatoken
+address: 0xFD9Cc74A721B528eAefEffd43DCF554805cB3D9f
+
+dai
+address: 0xcE5C3529E84a51fab4A3AA07cd10160b42015870
+
+busd
+address: 0xDA4C6Fc23137539c19a259D9E00CD04e63FFbfD4
+

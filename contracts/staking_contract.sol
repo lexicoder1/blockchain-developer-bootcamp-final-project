@@ -78,6 +78,11 @@ abstract contract Ownable is Context {
     }
 }
 contract staking is  Ownable{
+
+    //  @title Contract for staking erc20 token platform
+    //  @author Uzor Ifeanyi
+    //  @notice Allows a users to stake erc20 token and get 8% interest perday
+    
     uint interestRatePerday=8;
     mapping (address=>uint) timestart;
     mapping (address=>bool) whiteListaddress; 
@@ -85,10 +90,16 @@ contract staking is  Ownable{
     mapping (string=>mapping(address=>uint)) balances;
     mapping (address=>bool) withdrawonce;
    
-    
+   
+    //  @ dev this function updates interest rate
+    // @ only owner can update interst rate
     function setIntrestrate(uint rate)public onlyOwner{
         interestRatePerday=rate;
     }
+
+     //  @ dev this function whitelist erc20 token that can be staked
+    //   @ only owner can can whitelist token to be staked
+
      function setTickerToTokenAddress(string memory ticker, address add)public onlyOwner{
         tokenaddress[ticker]=add;
          whiteListaddress[add]=true;
@@ -106,6 +117,8 @@ contract staking is  Ownable{
         return IERC20(tokenaddress[ticker]).balanceOf(msg.sender);
     }
     
+    // @ dev this function allows you to stake whitelisted token
+
     function stake(uint amount , string memory ticker) public {
         timestart[msg.sender]=block.timestamp;
         require( whiteListaddress[tokenaddress[ticker]]==true);
@@ -114,7 +127,7 @@ contract staking is  Ownable{
         IERC20(tokenaddress[ticker]).transferFrom(msg.sender,address(this),amount);
         
     }
-    
+    // @ dev this function allows you to withdraw staked token after one minute of staking
     function withdraw(string memory ticker)public {
          require(block.timestamp-timestart[msg.sender]>=1 minutes);
          require(withdrawonce[msg.sender]==true);
